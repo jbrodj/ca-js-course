@@ -4,22 +4,26 @@ let zy = 'zy'
 
 let tozzy = 'tozzy'
 
-console.log(noz + zy + ` ${tozzy}`)
+// console.log(noz + zy + ` ${tozzy}`)
 
-let nozzytozzy = noz + zy + `  ${tozzy}`
+// let nozzytozzy = noz + zy + `  ${tozzy}`
 
-console.log(typeof null)
+// console.log(typeof null)
 
 // ** Reminder
 // Primitive Data Types: String, Number, Boolean, Null, Undefined, Symbol
 // Objects: Array, Function, Object
   // {typeof null} will get reported as an object because of a quirk from original JS, but it's not really an object. 
 
+
+
   // ** ===== Arrays =====
 
   const frienz = ['suz', 'stu', 'ron', 'don', 'shevon'];
 
   frienz[2] = 'disco stu';
+
+
 
   //** ===== Functions =====
 
@@ -28,7 +32,7 @@ console.log(typeof null)
     console.log(frienz[i]);
   }
 
-  doSomething()
+  // doSomething()
 
   // Function declaration
   function hello() {
@@ -36,17 +40,17 @@ console.log(typeof null)
   }
 
   // Function invocation
-  hello()
+  // hello()
 
   function hiThere(person) {
-    console.log(`Hi there ${person}`)
+    // console.log(`Hi there ${person}`)
     console.log('Hi there ' + person)
   }
 
-  hiThere(frienz[4])
+  // hiThere(frienz[4])
 
-  console.log(hello)
-  console.log(hello())
+  // console.log(hello)
+  // console.log(hello())
 
 const wallHeight = 80;
   
@@ -62,9 +66,11 @@ const wallHeight = 80;
     const dimensions = [width, height]
 
     // Our function above doesn't have return, so we will get undefined here. Adding explicit return lets us see the evaluation. 
-    console.log(dimensions)
+    // console.log(dimensions)
 
     // ==========================================================================================================
+
+
 
     // ** Just to show the syntax difference between expressions and declarations. 
 
@@ -92,6 +98,8 @@ const wallHeight = 80;
     const values = [firstValue, secondValue, thirdValue, fourthValue];
     console.log(values)
 
+
+
     // **===== Objects =====
 
     // Can contain basically any data. Here there are strings, numbers, booleans, arrays, and methods. 
@@ -112,3 +120,87 @@ const wallHeight = 80;
     person.greeting()
 
     console.log(person.frenz)
+
+
+
+    // ** ===== Conditionals =====
+
+    // If statements 
+
+    // if(true) {
+    //   console.log('wat happen')
+    // }
+
+    // if(person.frenz.length > 0) {
+    //   console.log(person.frenz.length)
+    // }
+
+    // The ! operator
+
+    let value = false
+
+    if (!value) {
+      console.log('value is a lie!!!!')
+    }
+
+    // Fun...ction
+
+    function score(ourTeam, otherTeam) {
+      if(ourTeam > otherTeam) {
+        console.log('woooooooo')
+      } else {
+        console.log('booooooourns')
+      }
+    }
+
+    score(1, 2)
+
+    // Checking equality
+
+    const num1 = 4;
+    const num2 = 4;
+
+    const chek = num1 == num2;
+    console.log(chek)
+
+
+
+    // ** Logical operators
+
+    // ||, &&, !
+
+    if(num1 == num2 && num1 > 0) {
+      console.log('ohyeah!');
+    }
+
+
+    // ** Switch Statements
+
+    // Consider example:
+    const dice = 1;
+
+    if(dice === 1) {
+      console.log('you got a 1');
+    }
+
+    else if (dice === 2) {
+      console.log('you got a 2');
+    }
+
+    else {
+      console.log(`you didn't even roll, silly!!!`);
+    }
+    
+
+    // Switch
+
+    switch (dice) {
+      case 1: 
+        console.log('you got a 1');
+        break;
+      case 2: 
+        console.log('you got a 2');
+        break;
+      default: 
+        console.log(`you didn't even roll, silly`)
+    }
