@@ -194,12 +194,17 @@ const wallHeight = 80;
 
     // Switch
 
+    // The case is checking the param given for strict equality with whatever comes after the word case. Ie the number 1, or the string of 'fell off the table'
+
     switch (dice) {
       case 1: 
         console.log('you got a 1');
         break;
       case 2: 
         console.log('you got a 2');
+        break;
+      case 'fell off the table':
+        console.log('oooooops, roll again')
         break;
       default: 
         console.log(`you didn't even roll, silly`)
