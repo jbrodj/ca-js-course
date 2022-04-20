@@ -1,3 +1,5 @@
+// Some quick review
+
 let noz = 'noz'
 
 let zy = 'zy'
@@ -10,7 +12,6 @@ let tozzy = 'tozzy'
 
 // console.log(typeof null)
 
-// ** Reminder
 // Primitive Data Types: String, Number, Boolean, Null, Undefined, Symbol
 // Objects: Array, Function, Object
   // {typeof null} will get reported as an object because of a quirk from original JS, but it's not really an object. 
@@ -110,7 +111,7 @@ const wallHeight = 80;
       age: 40,
       address: '49 Noodle St',
       isKewl: true,
-      frenz: ['Steve', 'Stu', 'Strahd', 'Strudel'],
+      frenz: ['Steve', 'Stu', 'Stede', 'Strahd', 'Strudel'],
       greeting: function() {
         console.log(`Hello my name is ${person.name}`)
       }
@@ -192,9 +193,9 @@ const wallHeight = 80;
     }
     
 
-    // Switch
+    // Using a switch statement instead:
 
-    // The case is checking the param given for strict equality with whatever comes after the word case. Ie the number 1, or the string of 'fell off the table'
+    // We're checking the param given for strict equality with whatever comes after the word case. Ie the number 1, or the string of 'fell off the table'
 
     switch (dice) {
       case 1: 
