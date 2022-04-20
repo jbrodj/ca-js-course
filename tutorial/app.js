@@ -210,3 +210,63 @@ const wallHeight = 80;
       default: 
         console.log(`you didn't even roll, silly`)
     }
+
+
+
+    // ** Loops!
+
+
+  // While loop
+    // Runs as long as the condition in parentheses is true. 
+
+  let amt = 10;
+
+  while (amt > 8) {
+    console.log('I have ' + amt + ' dollars, yaaahoooo!');
+    amt --
+  }
+
+
+  // Do while loop
+    // Will always run the DO block once! Then checks the WHILE condition, and either runs or doesn't based on that condition. 
+
+  let money = 0;
+
+  do  {
+    console.log('you have ' + money + ' dollars.');
+    money++;
+  } while (money < 2)
+
+
+  // For loop
+
+  let i;
+
+  for(i = 0; i < 2; i++) {
+    console.log('woah, i is equal to ' + i + ' now!')
+  }
+
+
+
+  // ** String properties & methods
+    // JS creates a wrapper string object for the string, we can do cool stuff. 
+      // The value of -1 is evaluated if you check for something that doesn't exist in a string. Ie, if you check for an uppercase 'P' in 'pietrov.
+
+  let kewlPerson = 'pietrov';
+  const prelude = 'gee, ';
+
+console.log(kewlPerson.charAt(0))
+console.log(kewlPerson.includes('etrov'))
+console.log(kewlPerson.concat(' peterson'))
+console.log(prelude.concat(kewlPerson.concat(' sure loves strings omg omg!!!')).toUpperCase())
+console.log(prelude.concat(kewlPerson.concat(' sure loves pizza!')).toUpperCase().length)
+
+let something = '      what, why, what is happening? So many spaces!      '
+console.log(something.length)
+console.log(something.trim().length) // .trim() cuts white space from the beginning and end of a string!! Neat!
+console.log(something.startsWith('what'))
+console.log(something.trim().toUpperCase().startsWith('WHAT'))
+
+console.log(kewlPerson.slice(0,3)) // Slice starts at the first argument, and  runs a number of characters equal to the second argument, returning a new string. 
+console.log(something.trim().split(' ')) //Split returns an array populated with the characters of the string, separating at the character given as argument (empty string to make it spilit every character). 
+console.log(kewlPerson.split(''))
