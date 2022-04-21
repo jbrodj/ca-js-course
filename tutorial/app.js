@@ -270,3 +270,67 @@ console.log(something.trim().toUpperCase().startsWith('WHAT'))
 console.log(kewlPerson.slice(0,3)) // Slice starts at the first argument, and  runs a number of characters equal to the second argument, returning a new string. 
 console.log(something.trim().split(' ')) //Split returns an array populated with the characters of the string, separating at the character given as argument (empty string to make it spilit every character). 
 console.log(kewlPerson.split(''))
+
+
+
+// ** Template literals
+  // Interpolation - using the ${} buddy to insert an expression (value) inside a string ``!
+
+const someonesName = 'Alejandra';
+const age = 31;
+const howKewl = 'super duper kewl'
+const sentence = `Hello, my name is ${someonesName}, and I'm ${age} years old, and ${howKewl}! Wow neat wow!`
+
+console.log(sentence)
+
+// You can also write expressions right in the cashmoneycurlies! Anything that evaluates to something.
+
+console.log(`Woah, I found ${4 + 1 + 5 + 7 - 12 + 3 + 1} cookies in the cookie jar!!!!!`)
+
+
+
+// ** Array properties & methods
+
+let names = ['sue', 'steve', 'esteban', 'eva', 'roberto'];
+
+// length
+console.log(names.length)
+console.log(names[names.length - 1])
+
+// concatenation
+const lastNames = ['pepperington', 'snootypoots', 'bananarama'];
+const allNames = names.concat(lastNames)
+console.log(allNames)
+
+// reverse
+console.log(allNames.reverse())
+
+// sort
+console.log(allNames.sort())
+
+// shift, unshift, pop, push
+allNames.shift() // Removes first item of array.
+allNames.unshift('suzanne') // Adds argument to beginning of array. 
+allNames.pop() // Removes last item of array.
+allNames.push('walter') // Adds argument to end of array.
+console.log(allNames)
+
+// splice  --  ****mutates the ogirinal array****
+const theseNamesInParticular = allNames.splice(2, 3) // Start at index given at first argument, run for number of items given as second argument.
+console.log(theseNamesInParticular) // Just the names we spliced out, as new array.
+console.log(allNames) // Old array with the spliced items removed!
+
+
+
+// ** Arrays + for looooops
+
+const namerinos = ['annie', 'wanda', 'barkley', 'baby']
+const lastName = 'snarkley'
+
+let fullNames = []
+
+for (let i = 0; i < namerinos.length; i++) {
+  fullNames.push(`${namerinos[i]} ${lastName}`)
+}
+
+console.log(fullNames)
