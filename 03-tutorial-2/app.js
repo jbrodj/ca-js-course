@@ -126,21 +126,84 @@ valueBuddy ? (console.log('oh yeah')) : (console.log('oh no'))
 let namerino = 'boziferous'
 
 function superSecretFunction() {
-  namerino = 'steve'
-  console.log(namerino)
-
-  function nestedFunction() {
-    namerino = 'poopypants'
-    console.log(`why is my name ${namerino}? in this inner function`)
-  }
-
-  nestedFunction()
+  const age = 25;
+  // Keyewording a new variable protects them in a code block, if you just initialized a variable without let/const, JS would create a global variable by default, which would be accessible outside the block (as long as the function has been invoked - the variable won't exist until the function has run once).
+  // For ex.
+  unprotecc = 'uh oh, this is global?!'
 }
 
-// if (true) {
+if (true) {
   console.log(`yup, name is ${namerino}`)
-  namerino = 'silly name'
-// }
+  // console.log(age) // Can't access this here bc of scope - get reference error! 
+}
 
 superSecretFunction()
 console.log(`Hi there, I'm ${namerino}`) // The variable in the function modifies our global variable! 
+console.log(unprotecc)
+
+// Note that var behaves differently than let/const wrt local scope. 
+
+
+
+
+// ** Variable Lookup
+
+const globalNumber = 5;
+
+function add(num1, num2) {
+  const globalNumber = 20;
+  const result = num1 + num2 + globalNumber;
+  return result
+}
+
+console.log(add(3,4))
+console.log(globalNumber)
+
+// When we invoke a variable in a block, JS is going to look at the local scope for something with that name, if not found, looks globally for something with that name. 
+// Note how there are two different variables called 'globalNumber' with different values. 
+
+
+
+
+// ** Callback Functions & Higher Order Functions
+
+// Functions are first-class objects. Functions can be stored in a variable, can be passed as an argument to another function, can be returned by another function (in a closure). 
+
+    // Higher order function - accepts another function as an argument or returns another function as a result. 
+
+    // Callback function - passed to another function as an argument and executed inside that function. 
+
+function greetMorning(name) {
+  const myName = 'Brod'
+  console.log(`Good morning ${name}, my name is ${myName}`)
+}
+function greetAfternoon(name) {
+  const myName = 'Brod'
+  console.log(`Good afternoon ${name}, my name is ${myName}`)
+}
+
+greetMorning('Steve')
+greetAfternoon('Steve')
+
+// This is obviously unneccesarily repetitive. Let's do some callbacks!
+
+// Callback 1
+function morning(name) {
+  return `Good morning ${name.toUpperCase()}`;
+}
+// Callback 2
+function afternoon(name) {
+  return `Good afternoon ${name.repeat(3)}`;
+}
+
+// Mama function
+function greet(name, time) {
+  // time(); // we can call our callback where we want to use it!
+  const me = 'Brod';
+  console.log(`${time(name)}, my name is ${me.toUpperCase()}`);
+  // We're running the morning function by calling the time() parameter, and passing it name. 
+}
+
+greet('Suz', morning)
+greet('Fran', afternoon)
+// Note that in a callback, we're not invoking it, just referencing it. The point is, we decide when it runs within the higher order function body. 
