@@ -207,3 +207,104 @@ function greet(name, time) {
 greet('Suz', morning)
 greet('Fran', afternoon)
 // Note that in a callback, we're not invoking it, just referencing it. The point is, we decide when it runs within the higher order function body. 
+
+
+
+
+// ** Array Iterators
+
+// forEach, map, filter, find, reduce
+  // Iterate over array - no for loop required. 
+  // Accept callback function as an argument, calls callback against each item in an array. Referencing the item in the callback parameter. 
+
+  const numberinos = [0, 1, 2, 3, 4];
+
+  // Show all numbers
+
+  for (let i = 0; i < numberinos.length; i++) {
+    console.log(numberinos[i])
+  }
+
+  // The methods let us loop without using a for, and can do some kewl things to modify the array. 
+
+  // Some data to run our methods on. 
+  const peeps = [
+    {name: 'spongebob', isSponge: true, coolnessFactor: 10},
+    {name: 'patrick', isSponge: false, coolnessFactor: 7},
+    {name: 'squidward', isSponge: false, coolnessFactor: 4},
+    {name: 'brod', isSponge: false, coolnessFactor: 9}
+  ]
+
+
+  //* == forEach ==
+      // Runs through the array and runs a callback for each item.
+      // Does not return new array.
+
+
+    // callback function
+    function showPeep(peep) {
+      console.log(peep.name);
+    }
+
+    // invoke w/ our foreach - remember we're not calling the function, we're passing its definition.
+    peeps.forEach(showPeep)
+
+
+    // We can also pass an anonymous callback inline, again using a parameter to represent each item.
+
+    peeps.forEach(function(item) {
+      console.log(`Is ${item.name} a sponge?` + ` ${item.isSponge}`.toUpperCase())
+    })
+
+
+  //* == map ==
+
+      // Runs through the array running a callback for each item.
+      // Returns a new array of all the items with whatever logic you performed on them.
+      // Does not modify original array.
+
+    // New array with just the names: 
+    const names = peeps.map(function(person) {
+      return person.name
+    })
+    // Remember to return somthing!
+
+    console.log(names)
+
+    // New array with new object structure.
+    const newBuddy = peeps.map(function(item) {
+      return {
+        firstName: item.name.toUpperCase(),
+        kewlness100: item.coolnessFactor * 10,
+      }
+    })
+
+    console.log(newBuddy)
+
+    // Let's pull the names, and put them in headings!
+    const headingNames = peeps.map(function(person) {
+      return `<h2>${person.name}</h2>`
+    })
+
+    document.body.innerHTML = headingNames.join('') // passing empty string means we don't have comma separating them. 
+    console.log(headingNames)
+
+
+    // * == filter ==
+
+      // Runs through the array checking each item for a condition we set in the callback.. 
+      // Returns a new array.
+      // Returns based on the condition.
+
+
+    const kewlPeople = peeps.filter(function(person) {
+      return person.coolnessFactor > 7;
+    })
+
+    console.log(kewlPeople)
+
+    const isSponge = peeps.filter(function(item) {
+      return item.isSponge == true;
+    })
+
+    console.log(isSponge)
