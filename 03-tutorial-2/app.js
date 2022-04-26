@@ -229,10 +229,10 @@ greet('Fran', afternoon)
 
   // Some data to run our methods on. 
   const peeps = [
-    {name: 'spongebob', isSponge: true, coolnessFactor: 10},
-    {name: 'patrick', isSponge: false, coolnessFactor: 7},
-    {name: 'squidward', isSponge: false, coolnessFactor: 4},
-    {name: 'brod', isSponge: false, coolnessFactor: 9}
+    {name: 'spongebob', isSponge: true, coolnessFactor: 10, id: 101},
+    {name: 'patrick', isSponge: false, coolnessFactor: 7, id: 102},
+    {name: 'squidward', isSponge: false, coolnessFactor: 4, id: 103},
+    {name: 'brod', isSponge: false, coolnessFactor: 9, id: 104}
   ]
 
 
@@ -292,7 +292,7 @@ greet('Fran', afternoon)
 
     // * == filter ==
 
-      // Runs through the array checking each item for a condition we set in the callback.. 
+      // Runs through the array checking each item for a condition we set in the callback. 
       // Returns a new array.
       // Returns based on the condition.
 
@@ -308,3 +308,47 @@ greet('Fran', afternoon)
     })
 
     console.log(isSponge)
+
+
+
+    // * == find ==
+
+      // Takes callback that stipulates the condition we're searching for.
+      // Returns a single instance - in this case, an object because our array items are objects.
+          // If the array was a bunch of strings, for example, it would return a string. 
+      // Returns the first match - if no match, returns undefined. 
+      // Very useful when we have UNIQUE values, like an item in an array that has a unique ID code. 
+
+    const uniquePerson = peeps.find(function(person) {
+      return person.id == 103;
+    })
+
+    console.log(uniquePerson)
+
+    // Find can save time over filter because it's returning that single object in its native form. Filter is returning it inside a new array that you'll need to dig into to access the object and its properties. 
+
+
+
+    // * == reduce ==
+
+      // Can be more powerful and more challenging than the other methods.
+      // Takes a callback, iterates over the array, reducing the values in the array to a single value. 
+      // 2 parameters in the callback: accumulator (total of all calculations), and current (current iteration/value).
+          // On each iteration of the loop, acc represents our running total, and curr represents the item in the array we're currently on.
+          // The callback must always return the accumulator (first param)
+      // The reduce method itself takes two parameters too - the callback function, and a dependency type thingy that's setting the format for what we're returning (ie. it'll be an empty array, or object, or 0 or something).
+          // This also represents the baseline value. Ie. if we're adding a total number that starts at 200, we'd write 200 there instead of zero. 
+      // Make sure to write the accumulator in there.
+      // This will evaluate to our total of all the values!
+      
+    const totalKewlness = peeps.reduce(function(acc, curr) {
+      console.log(`the current running total is ${acc}`)
+      console.log(`${curr.name} is adding ${curr.coolnessFactor} to the total`)
+
+      acc += curr.coolnessFactor
+
+      return acc
+    }, 0)
+
+    console.log(totalKewlness)
+
