@@ -352,3 +352,87 @@ greet('Fran', afternoon)
 
     console.log(totalKewlness)
 
+
+
+
+    // * Math Object
+
+      // It's a built-in object that's always avalailable. 
+    
+    const numero = Math.PI;
+
+    const roundDown = Math.floor(numero);
+    const roundUp = Math.ceil(numero);
+    const sqrt = Math.sqrt(numero)
+
+    console.log(roundDown, roundUp, sqrt)
+
+    const max = Math.max(1, 4, 3, 9);
+    const min = Math.min(0.001, 2390, 343);
+
+    console.log(max, min)
+
+    const random = Math.random() // Delivers result between 0 and 0.9999999999... inclusive.
+
+    // What if we want a random number between x and y?
+    const oneToTen = Math.floor(Math.random() * 10 + 1)
+
+    console.log(random)
+    console.log(oneToTen)
+
+
+
+
+    // * Date Object
+
+      // Create new instance of the date object, invoke it, nd it'll give you the date. 
+      // It has a whoooole pile of methods.
+
+    const date = new Date();
+    console.log(date)
+
+    // We have access to a buunch of properties in the object.
+    console.log(date.getFullYear())
+    
+    // Some of the properties are index-based. So using getMonth will give an index (0 for January, 11 for December, for ex.)
+
+    // So you can set up an array for the months:
+
+    const months = [
+      'January',
+      'February', 
+      'March', 
+      'April',
+      'May', 
+      'June', 
+      'July... Happy birthday!!!',
+      'August', 
+      'September',
+      'October',
+      'November', 
+      'December'
+    ]
+
+    const month = date.getMonth()
+
+    // And use the getMonth index to point to a month in your hard-coded array. 
+    console.log(months[month])
+
+    // Same is true for days of the week. 
+
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+    const day = date.getDay()
+
+    console.log(days[day])
+
+  // Put it all together in a string!
+
+  const today = `Oh neato, it's ${days[day]} ${months[month]} ${date.getDate()}, ${date.getFullYear()}!`
+  console.log(today)
+
+  // We can also set a date using a parameter.
+
+  const anotherDate = new Date('04//11/1296')
+
+  console.log(anotherDate)
