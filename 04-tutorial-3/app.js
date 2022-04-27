@@ -85,18 +85,109 @@
           // Use . and # for classes and IDs. 
           // querySelectorAll allows you to use forEach!
 
-  const result = document.querySelector('#result');
-  console.log(result);
+    const result = document.querySelector('#result');
+    console.log(result);
 
-  result.style.backgroundColor = 'navy';
-  result.style.padding = '2rem 0';
+    result.style.backgroundColor = 'navy';
+    result.style.padding = '2rem 0';
 
-  const lastItem = document.querySelector('li:last-child');
-  console.log(lastItem.textContent);
+    const lastItem = document.querySelector('li:last-child');
+    console.log(lastItem.textContent);
 
-  const list = document.querySelectorAll('.li');
+    const list = document.querySelectorAll('.li');
 
-  // Woah! qSA lets you use forEach!!!
-  list.forEach(function(item) {
-    console.log(item.textContent)
-  })
+    // Woah! qSA lets you use forEach!!!
+    list.forEach(function(item) {
+      console.log(item.textContent)
+    })
+
+
+
+
+
+  // * Navigate the Dom - Children 
+
+      // Target the list items without using methods - traverse dom tree instead.
+          //  We can navigate with: 
+              // childNodes, children, firstChild, lastChild.
+              // Careful with childNodes - returns all child nodes of the selected element - including whitespace, which is treated like a text node.
+              // In some cases, the first or last child happens to be whitespace - so be careful with firstChild and lastChild too. 
+
+    const resultUl = document.querySelector('#result');
+
+    const allChildren = resultUl.childNodes;
+
+    console.log(allChildren) // Notice white space included in the ul children. 
+
+    const children = resultUl.children;
+
+    console.log(children) // Gives us am object containing each of the child elements. 
+    console.log(children[1].textContent) // digging into the object to get some data. 
+
+    console.log(resultUl.firstChild) // Notice both of these give us a text node representing whitespace. 
+    console.log(resultUl.lastChild)
+
+
+
+
+  // * Navigate the Dom - Parent
+
+      // Self explanatory, we can access the parent node of something.
+
+    const specialBuddy = document.getElementById('h2')
+
+    console.log(specialBuddy)
+    console.log(specialBuddy.parentElement) // We can grab the parent node!
+    console.log(specialBuddy.parentElement.parentElement) // And chain the properties to keep going up the tree.
+
+    const parentDiv = specialBuddy.parentElement;
+
+    parentDiv.style.backgroundColor = 'tomato';
+
+
+
+
+  // * Navigate the Dom - Sibling
+
+      // We can access sibling nodes using nextSibling and previousSibling.
+          // These will both return text nodes from whitespace!
+
+    const first = document.querySelector('.first');
+
+    console.log(first.nextSibling.nextSibling); // We can string these too. 
+
+    const whitespace = first.nextSibling;
+    whitespace.textContent = 'Oh no, this whitespace has text in it!!!! AAHHHHH!!! >:o'
+    console.log(whitespace.textContent)
+
+
+
+
+  // * Navigate the Dom - Element Sibling
+
+      // We can skip to real elements using nextElementSibling and previousElementSibling
+
+    const next = first.nextElementSibling;
+
+    next.style.letterSpacing = '9px';
+    next.style.textAlign = 'center';
+
+
+
+
+  // * nodeValue
+
+        // Another way to get the text content property. 
+
+    const item = document.getElementById('h2');
+    const value = item.nodeValue;
+
+    console.log(item.firstChild.nodeValue) // Have to dig to firstChild for some reason.
+
+
+
+
+  //* textContent
+
+      easyValue = item.textContent;
+      console.log(easyValue)
