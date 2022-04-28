@@ -61,7 +61,7 @@
     console.log(betterHeadingList)
     betterHeadingList.pop()
     console.log(betterHeadingList)
-
+    
 
   //* == getElementsByClassName ==
 
@@ -100,7 +100,6 @@
     list.forEach(function(item) {
       console.log(item.textContent)
     })
-
 
 
 
@@ -191,3 +190,45 @@
 
       easyValue = item.textContent;
       console.log(easyValue)
+
+
+
+
+  // * getAttribute() / setAttribute()
+
+      // Methods that let you access and set HTML attribute values.
+        // getAttribute takes a string querying the attribute you want.
+        // seyAttribute takes two strings. One accessing the attribute, and one setting its value.
+
+  // Grab an element
+  const firstOne = document.querySelector('.firstBuddy')
+
+  // Store the attribute to use.
+  const classValue = firstOne.getAttribute('id')
+  console.log(classValue)
+
+  // Grab an element
+  const link = document.getElementById('link')
+  // Store the value
+  const showLink = link.getAttribute('href')
+  console.log(showLink)
+
+  // Grab the li with the anchor.
+  const linkLi = document.getElementById('linkLi')
+
+  // Let's target the last buddy.
+  const lastBuddy = linkLi.nextElementSibling;
+
+  // Set an attribute.
+  lastBuddy.setAttribute('class', 'first')
+  lastBuddy.textContent = 'hey, now I have an attribute too! :D' // We dynamically changed the text content!
+
+  // Let's grab everything with a class of first.
+  const links = document.querySelectorAll('.first')
+  console.log(links); // notice there are two nodes with a class of first!
+
+
+
+
+  // * classList() / className()
+
