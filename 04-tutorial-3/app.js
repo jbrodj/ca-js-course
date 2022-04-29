@@ -151,11 +151,11 @@
       // We can access sibling nodes using nextSibling and previousSibling.
           // These will both return text nodes from whitespace!
 
-    const first = document.querySelector('.first');
+    const firstDude = document.querySelector('.first');
 
-    console.log(first.nextSibling.nextSibling); // We can string these too. 
+    console.log(firstDude.nextSibling.nextSibling); // We can string these too. 
 
-    const whitespace = first.nextSibling;
+    const whitespace = firstDude.nextSibling;
     whitespace.textContent = 'Oh no, this whitespace has text in it!!!! AAHHHHH!!! >:o'
     console.log(whitespace.textContent)
 
@@ -166,7 +166,7 @@
 
       // We can skip to real elements using nextElementSibling and previousElementSibling
 
-    const next = first.nextElementSibling;
+    const next = firstDude.nextElementSibling;
 
     next.style.letterSpacing = '9px';
     next.style.textAlign = 'center';
@@ -230,5 +230,102 @@
 
 
 
-  // * classList() / className()
+  // * classList / className
 
+      // Properties that let us access and set class attributes of elements.
+        // Be aware that setting className / classList using the assignment operator resets the whole class attribute string, doesn't add additional values. 
+        // The classList property has methods for appending/modifying the class list. 
+            // Give the method an argument of the class attribute string.
+            // classList.add('') / classList.remove('')
+
+    const first = document.getElementById('first');
+    const second = document.getElementById('second');
+    const third = document.getElementById('third');
+
+    const classValues = first.className;
+    console.log(classValues);
+
+    first.className = 'text';
+    second.className = 'text'; // Notice this gets overwritten by the next line. 
+    second.className = 'colors';
+    third.classList = 'text';
+    third.classList.add('colors'); // Notice here we're adding this string to the class attribute.
+
+    first.classList = 'text colors' // Setting more than one class in a string with classList, just string as normal in markup.
+    first.classList.remove('colors') // Removing the string from the class attribute. 
+
+    third.classList.add('kewl', 'neato', 'awesome') // Using the methods, multiple params are comma-separated.
+    console.log(third.classList)
+
+    let checker = third.classList.contains('colors') // Can also check whether or not a string is present in the class list.
+    console.log(checker)
+
+
+
+
+  // * Creating and appending elements!
+
+      // Helpful methods for creating and appending content. 
+
+        // * createElement('elementName')
+        // * createTextNode('Text content')
+        // * element.appendChild(childElement)
+
+    // Grab our parent element.
+    const resDiv = document.querySelector('#resultDiv');
+
+    // Create empty element.
+    const childDiv = document.createElement('div');
+
+    // Create text node. 
+    const bodyText = document.createTextNode('Woah, text in div!');
+
+    // Append text 
+    childDiv.appendChild(bodyText);
+
+    console.log(childDiv.textContent);
+
+    // Append div to page.
+    resDiv.appendChild(childDiv);
+    console.log(resDiv);
+
+    // Let's add a heading.
+    const subHeading = document.createElement('h3');
+    const headingText = document.createTextNode('Wooooah dynamic heading over here!');
+    subHeading.appendChild(headingText);
+    resDiv.appendChild(subHeading);
+
+
+
+
+    // * insertBefore('element', 'location)
+
+        // Two arguments, the name of the element we're creating, and the place we want to add it before. 
+
+    // Let's make a new element to sneak in ahead of another.
+    const moreHeadings = document.createElement('h3');
+    const moreHeadingText = document.createTextNode('Sneaky heading!');
+    moreHeadings.appendChild(moreHeadingText);
+
+    // Grab parent element (or body), pass the element, and the element you want it to sneak in before.
+    resDiv.insertBefore(moreHeadings, childDiv);
+
+
+
+    // * replaceChild('new', 'old')
+
+        // Two arguments - the new element and the second is the old element. 
+
+      // Grab an element. 
+      const disappearingDiv = document.querySelector('.replace')
+      const disappearingText = document.querySelector('.gone')
+      console.log(disappearingDiv)
+
+      // New heading
+      const smolHeading = document.createElement('h4');
+      const smolText = document.createTextNode('Smolboi')
+      smolHeading.classList.add('blue')
+      smolHeading.appendChild(smolText)
+
+      // disappearingText element is replaced with smolHeading element.
+      disappearingDiv.replaceChild(smolHeading, disappearingText)
