@@ -329,3 +329,7 @@
 
       // disappearingText element is replaced with smolHeading element.
       disappearingDiv.replaceChild(smolHeading, disappearingText)
+
+
+
+    // * prepend / innerText
