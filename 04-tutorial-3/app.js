@@ -346,6 +346,18 @@
 
 
 
-    // * remove / removeChild
+    // * remove / removeChild / running selector on nodes instead of document
 
-    
+    const removeADiv = document.querySelector('.remove');
+
+    // All you need to do is run the method on the node!
+    // removeADiv.remove();
+
+    // To remove a child, we run the method on the parent, but we also need a valid way of selecting the specific child we want to remove. 
+
+    //*Note that we're using the node object removeADiv instead of document as our starting point here!
+
+    const removeAChild = removeADiv.querySelector('h2')
+    // console.log(removeAChild)
+
+    removeADiv.removeChild(removeAChild)
