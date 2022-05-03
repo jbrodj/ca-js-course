@@ -332,4 +332,20 @@
 
 
 
-    // * prepend / innerText
+
+    // * prepend() / innerText
+
+    const headerooni = document.createElement('h2');
+
+    // Give the heading text by giving a value to the innerText property.
+    headerooni.innerText = `Woah I'm a prepended dynamic heading set with innerText!`;
+    
+    // Prepending is like append, but sends it to the beginning. 
+    document.body.prepend(headerooni)
+
+
+
+
+    // * remove / removeChild
+
+    
