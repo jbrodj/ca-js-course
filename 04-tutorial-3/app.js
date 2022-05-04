@@ -357,7 +357,41 @@
 
     //*Note that we're using the node object removeADiv instead of document as our starting point here!
 
-    const removeAChild = removeADiv.querySelector('h2')
+    const removeAChild = removeADiv.querySelector('h2');
     // console.log(removeAChild)
 
-    removeADiv.removeChild(removeAChild)
+    removeADiv.removeChild(removeAChild);
+
+
+
+
+    // * innerHTML / textContent properties
+        
+        // We can set the content of a node pretty easily by assigning values to these properties. 
+        // innerHTML a bunch of steps because we don't need to create each node separately. We can create the top level node, and give it html to create those child nodes automatically.
+
+    const textList = document.getElementById('numOne');
+    const textDiv = document.getElementById('numTwo');
+    const textItem = document.getElementsByClassName('textItem');
+
+    // Looking at the textContent property of a node with some text content.
+    console.log(textDiv.textContent);
+
+    // Looking at the innerHTML property of a node with some html content.
+    console.log(textList.innerHTML);
+
+    // Just a variable for some templating.
+    const randomVariable = 'This is a templated text thingy from a variable'
+
+    // Create a new element and give it content. 
+    const newTextUl = document.createElement('ul');
+    newTextUl.innerHTML = `<h3>We created this with innerHTML</h3><li class="textItem">Listerooni</li>
+        <li>List-to-the-port</li><li>${randomVariable}</li>`
+
+    textDiv.appendChild(newTextUl)
+
+
+
+
+
+    // * Change CSS with the Style Property
