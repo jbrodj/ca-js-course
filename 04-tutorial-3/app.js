@@ -395,3 +395,13 @@
 
 
     // * Change CSS with the Style Property
+
+        // There are downsides to this approach - we'd almost always want to use classList instead. 
+        // Adding properties happens one by one, so it's tedious.
+        // We're also mixing our concerns. The styles should be in the CSS file - simply adding a class to the element that references a group of stlyes in the CSS would be more appropriate separation of concerns. 
+
+    const thingToChange = document.querySelector('.textItem');
+
+    thingToChange.style.backgroundColor = 'tomato';
+    thingToChange.style.fontSize = '2rem';
+
