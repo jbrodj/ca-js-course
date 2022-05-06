@@ -302,13 +302,13 @@
 
         // Two arguments, the name of the element we're creating, and the place we want to add it before. 
 
-    // Let's make a new element to sneak in ahead of another.
-    const moreHeadings = document.createElement('h3');
-    const moreHeadingText = document.createTextNode('Sneaky heading!');
-    moreHeadings.appendChild(moreHeadingText);
+      // Let's make a new element to sneak in ahead of another.
+      const moreHeadings = document.createElement('h3');
+      const moreHeadingText = document.createTextNode('Sneaky heading!');
+      moreHeadings.appendChild(moreHeadingText);
 
-    // Grab parent element (or body), pass the element, and the element you want it to sneak in before.
-    resDiv.insertBefore(moreHeadings, childDiv);
+      // Grab parent element (or body), pass the element, and the element you want it to sneak in before.
+      resDiv.insertBefore(moreHeadings, childDiv);
 
 
 
@@ -335,32 +335,32 @@
 
     // * prepend() / innerText
 
-    const headerooni = document.createElement('h2');
+      const headerooni = document.createElement('h2');
 
-    // Give the heading text by giving a value to the innerText property.
-    headerooni.innerText = `Woah I'm a prepended dynamic heading set with innerText!`;
-    
-    // Prepending is like append, but sends it to the beginning. 
-    document.body.prepend(headerooni)
+      // Give the heading text by giving a value to the innerText property.
+      headerooni.innerText = `Woah I'm a prepended dynamic heading set with innerText!`;
+      
+      // Prepending is like append, but sends it to the beginning. 
+      document.body.prepend(headerooni)
 
 
 
 
     // * remove / removeChild / running selector on nodes instead of document
 
-    const removeADiv = document.querySelector('.remove');
+      const removeADiv = document.querySelector('.remove');
 
-    // All you need to do is run the method on the node!
-    // removeADiv.remove();
+      // All you need to do is run the method on the node!
+      // removeADiv.remove();
 
-    // To remove a child, we run the method on the parent, but we also need a valid way of selecting the specific child we want to remove. 
+      // To remove a child, we run the method on the parent, but we also need a valid way of selecting the specific child we want to remove. 
 
-    //*Note that we're using the node object removeADiv instead of document as our starting point here!
+      //*Note that we're using the node object removeADiv instead of document as our starting point here!
 
-    const removeAChild = removeADiv.querySelector('h2');
-    // console.log(removeAChild)
+      const removeAChild = removeADiv.querySelector('h2');
+      // console.log(removeAChild)
 
-    removeADiv.removeChild(removeAChild);
+      removeADiv.removeChild(removeAChild);
 
 
 
@@ -370,25 +370,25 @@
         // We can set the content of a node pretty easily by assigning values to these properties. 
         // innerHTML a bunch of steps because we don't need to create each node separately. We can create the top level node, and give it html to create those child nodes automatically.
 
-    const textList = document.getElementById('numOne');
-    const textDiv = document.getElementById('numTwo');
-    const textItem = document.getElementsByClassName('textItem');
+      const textList = document.getElementById('numOne');
+      const textDiv = document.getElementById('numTwo');
+      const textItem = document.getElementsByClassName('textItem');
 
-    // Looking at the textContent property of a node with some text content.
-    console.log(textDiv.textContent);
+      // Looking at the textContent property of a node with some text content.
+      console.log(textDiv.textContent);
 
-    // Looking at the innerHTML property of a node with some html content.
-    console.log(textList.innerHTML);
+      // Looking at the innerHTML property of a node with some html content.
+      console.log(textList.innerHTML);
 
-    // Just a variable for some templating.
-    const randomVariable = 'This is a templated text thingy from a variable'
+      // Just a variable for some templating.
+      const randomVariable = 'This is a templated text thingy from a variable'
 
-    // Create a new element and give it content. 
-    const newTextUl = document.createElement('ul');
-    newTextUl.innerHTML = `<h3>We created this with innerHTML</h3><li class="textItem">Listerooni</li>
-        <li>List-to-the-port</li><li>${randomVariable}</li>`
+      // Create a new element and give it content. 
+      const newTextUl = document.createElement('ul');
+      newTextUl.innerHTML = `<h3>We created this with innerHTML</h3><li class="textItem">Listerooni</li>
+          <li>List-to-the-port</li><li>${randomVariable}</li>`
 
-    textDiv.appendChild(newTextUl)
+      textDiv.appendChild(newTextUl)
 
 
 
@@ -400,8 +400,43 @@
         // Adding properties happens one by one, so it's tedious.
         // We're also mixing our concerns. The styles should be in the CSS file - simply adding a class to the element that references a group of stlyes in the CSS would be more appropriate separation of concerns. 
 
-    const thingToChange = document.querySelector('.textItem');
+      const thingToChange = document.querySelector('.textItem');
 
-    thingToChange.style.backgroundColor = 'tomato';
-    thingToChange.style.fontSize = '2rem';
+      thingToChange.style.backgroundColor = 'tomato';
+      thingToChange.style.fontSize = '2rem';
+
+
+
+
+
+    // * Events
+    
+        // To handle events:
+          // Select an element's node object.
+          // Add an event listener to the node object using the addEventListener() method. It takes two arguments.
+            // Specify an event as an argument to the method.
+            // Pass a callback function specifying what to do when that event occurs as the other argument.
+        // Keep an eye out for the old way of adding event listeners, which was adding an attribute onClick="this.classList.add('blue')" inline in the HTML.
+    
+      // Get an element.
+      // const btn = document.querySelector('#btn'); // We're already initializing this variable earlier in the file. 
+      console.log(btn)
+
+      // Add the listener. Can be written inline as an anonymous callback.
+      btn.addEventListener('click', function(){ console.log('woah, we click!') })
+
+      // Callback function can also be a standalone callback, passing the definition to the listener method.
+      btn.addEventListener('click', clickityClackity);
+
+      function clickityClackity() {
+        console.log('clickity clackity');
+        clickyH2.classList.add('blue');
+      }
+
+      const clickyH2 = document.querySelector('#clickyH2'); // Notice that styles given through JS override the style here - only background works, font color doesn't change.
+
+
+
+
+
 
