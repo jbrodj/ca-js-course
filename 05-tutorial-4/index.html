@@ -33,6 +33,29 @@
       button {
         padding: 0.5rem 0.75rem;
         border-radius: 100px;
+        border: none;
+        margin: 0.25rem 0;
+      }
+
+      a {
+        display: inline-block;
+        /* margin-top: 100vh; */
+      }
+
+      div {
+        margin: 2rem auto;
+      }
+
+      .spannie {
+        font-style: italic;;
+      }
+
+      .moreSpannie {
+        font-weight: bold;
+      }
+
+      .nestyButtons {
+        display: block;
       }
 
     </style>
@@ -41,6 +64,19 @@
     <h1>More tutorialsssss</h1>
     <h2>Wooooo</h2>
     <button class="blue" id="btn">Clikplz</button>
+    <input type="text" id="name">
+
+    <div>
+      <h2 id="eventSubhead">Hi here's a heading</h2>
+      <button id="eventButton" class="blue">Event Button</button>
+      <a href="#" id="link">Random Link</a>
+    </div>
+
+    <div>
+      <button class="nestyButtons">first button</button>
+      <button class="nestyButtons">second <span class="spannie">button <span class="moreSpannie">more nested woah</span></span></button>
+      <button class="nestyButtons">third button</button>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>
