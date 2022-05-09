@@ -165,4 +165,50 @@
 
   // * Bubbling, propogation, capturing
 
-      
+      // This is important when we want to select dynamic elements (ie. those we've created using JavaScript) instead of just grabbing existing elements by their class or id. 
+      // Event propagation - the order the events are fired.
+      // Event bubbling - the clicked element fires first, and bubbles up from there.
+      // Event capturing - fires at the root, and goes until it reaches the target.
+
+
+    const container = document.querySelector('.container');
+    const list = document.querySelector('.listItems');
+
+    function showBubbly(e) {
+      console.log('current target', e.currentTarget);
+      console.log('target', e.target);
+
+      if (e.target.classList.contains('link')) {
+        console.log('yea we got a linkyboi')
+      } else {
+        console.log('we no click on link :(')
+      }
+    }
+
+    
+    list.addEventListener('click', showBubbly)
+    container.addEventListener('click', showBubbly)
+    document.addEventListener('click', showBubbly)
+    window.addEventListener('click', showBubbly)
+    
+    // Clicking on an anchor gives us a target result of the anchor node, but a currentTarget of whatever the event listener was attached to. 
+    // Ie. we're using querySelector to grab the container, but when we log the target, we're getting the anchor node. 
+    // * The big takeaway here is that we can select elements without targeting them. Which is where the important part comes in re: dynamically created elements. 
+    // So, if these anchors were dynamically created, and therefore we couldn't grab them with a querySelector because sometimes they don't exist, we can still access them by targeting the parent, and accessing the target property when we click on the anchor. 
+    
+    
+    // * == Stop propagation ==
+    // If instead, we wanted to be able to click on this link without event propagation, we can use a callback that invokes the stopPropagation method on the event object. 
+    function stopAgation(e) {
+      e.stopPropagation();
+    }
+    
+    // list.addEventListener('click', stopAgation)
+    // Notice how even the document/window events don't fire when we clink on the link. Because any click inside the node we've selected (the UL in this case) won't propagate normally. 
+    // The event bubbles up to the point where we stopped it. Ie. it fires on the link, then the li, then the ul, and stops there. 
+
+    // * == Event capturing ==
+
+    // Adding a third argument to the event listener can make the firing start from the window and go down.
+        // If all our event listeners had the capture:true buddy, we'd see the window, then document, then container, etc, etc. 
+    list.addEventListener('click', showBubbly, {capture: true})
